@@ -5,6 +5,7 @@ const {
 } = require('sequelize');
 const bcrypt = require('bcrypt');
 
+
 //==========For Get Pagination==========
 const getPagination = (page, size) => {
   const limit = size ? +size : 10;
