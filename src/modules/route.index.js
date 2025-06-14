@@ -1,6 +1,7 @@
 const envConfig = require("../config/env.config");
 const auth = require("./auth/routes/auth.route");
 const property = require("./property/routes/property.route");
+const category = require("./property/routes/category.route");
 
 module.exports = function (app) {
     app.use(function (req, res, next) {
@@ -13,6 +14,7 @@ module.exports = function (app) {
 
     app.use(envConfig.BASE_URL, auth);
     app.use(envConfig.BASE_URL, property);
+    app.use(envConfig.BASE_URL, category);
     
     
 };

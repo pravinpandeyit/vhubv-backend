@@ -14,6 +14,7 @@ db.sequelize = sequelize;
 
 // Avoid circular dependency by using function calls
 db.users = require("./user/models/user.model")(sequelize, Sequelize);
-db.property = require("./property/models/property.model")(sequelize, Sequelize);
+db.workspaceProperty = require("./property/models/WorkspaceProperty.model")(sequelize, Sequelize);
+db.spaceCategories = require("./property/models/spaceCateogories.model")(sequelize, Sequelize);
 
 module.exports = db;
