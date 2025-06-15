@@ -1,5 +1,5 @@
 function ApiResponse(res, statusCode, message, data) {
-  console.log(res, statusCode, message, data);
+  // console.log(res, statusCode, message, data);
   
     var status = Boolean;
     var apiStatusCode = 200;

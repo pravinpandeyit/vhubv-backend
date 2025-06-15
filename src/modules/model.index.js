@@ -16,5 +16,6 @@ db.sequelize = sequelize;
 db.users = require("./user/models/user.model")(sequelize, Sequelize);
 db.workspaceProperty = require("./property/models/WorkspaceProperty.model")(sequelize, Sequelize);
 db.spaceCategories = require("./property/models/spaceCateogories.model")(sequelize, Sequelize);
+db.enquiries = require("./enquiry/models/enquiry.model")(sequelize, Sequelize);
 
 module.exports = db;
