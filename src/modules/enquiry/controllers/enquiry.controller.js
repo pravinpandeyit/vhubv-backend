@@ -5,6 +5,7 @@ const db = require("../../model.index.js");
 const Enquiry = db.enquiries;
 const { Op, where } = require("sequelize");
 
+// Add a new enquiry
 exports.addNewEnquiry = asyncHandler(async (req, res) => {
   const { name, mobile, email } = req.body;
 
@@ -41,6 +42,7 @@ exports.addNewEnquiry = asyncHandler(async (req, res) => {
   }
 });
 
+// Get a list of enquiries with optional search and seen status
 exports.enquiryList = asyncHandler(async (req, res) => {
   try {
     const { search, seen } = req.query;
@@ -67,6 +69,7 @@ exports.enquiryList = asyncHandler(async (req, res) => {
   }
 });
 
+// Mark an enquiry as seen
 exports.markEnquiryAsSeen = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -87,11 +90,12 @@ exports.markEnquiryAsSeen = asyncHandler(async (req, res) => {
     await enquiry.save();
     return ApiResponse(res, 200, "Enquiry marked as seen");
   } catch (error) {
-    console.error("Error fetching enquiries:", error);
-    return ApiError(res, 500, "An error occurred while fetching enquiries.");
+    console.error("Error marking the enquiry as seen:", error);
+    return ApiError(res, 500, "An error occurred while marking the enquiry as seen.");
   }
 });
 
+// Delete an enquiry
 exports.deleteEnquiry = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
