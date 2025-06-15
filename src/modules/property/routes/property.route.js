@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {addProperty, } = require("../controllers/property.controller");
+const {addSpace,listProperties } = require("../controllers/property.controller");
 const {userRegistrationValidation,loginValidation} = require("../../../validations/auth.validation");
 const { verifyToken, isAdmin,isProvider } = require('../../../middleware/authJwt')
 const { uploadMultiple, handleMulterErrors,MultipleFileHandleMulterErrors } = require("../../../middleware/multerMiddleware");
@@ -8,7 +8,8 @@ const { MULTIPLE_FILE_SIZE_LIMIT,SINGLE_FILE_SIZE_LIMIT} = require("../../../con
 
 
 // auth routes
-router.post("/add/property",verifyToken,uploadMultiple.single("pictures_of_the_space"),handleMulterErrors({maxSize:MULTIPLE_FILE_SIZE_LIMIT}), addProperty);
+router.post("/add/property",verifyToken,uploadMultiple.single("pictures_of_the_space"),handleMulterErrors({maxSize:MULTIPLE_FILE_SIZE_LIMIT}), addSpace);
+router.get("/property/list",verifyToken, listProperties);
 
 
 module.exports = router;

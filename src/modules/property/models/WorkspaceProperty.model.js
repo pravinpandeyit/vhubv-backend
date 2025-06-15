@@ -1,6 +1,5 @@
-// models/property.model.js
 module.exports = (sequelize, Sequelize) => {
-  const Property = sequelize.define("property", {
+  const WorkspaceProperty = sequelize.define("workspace_property", {
     type_of_establishment: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -38,7 +37,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false,
     },
     pictures_of_the_space: {
-      type: Sequelize.ARRAY(Sequelize.STRING), 
+      type: Sequelize.ARRAY(Sequelize.STRING),
       allowNull: true,
     },
     first_name: {
@@ -59,8 +58,29 @@ module.exports = (sequelize, Sequelize) => {
     },
     status: {
       type: Sequelize.INTEGER,
-      defaultValue: 0, // 0 for pending 1 for active 2 for in active 
+      defaultValue: 0,
+    },
+    latitude: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    longitude: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    area_in_sqft: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    cabins: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    current_occupancy_percentage: {
+      type: Sequelize.STRING,
+      allowNull: false,
     },
   });
-  return Property;
+
+  return WorkspaceProperty;
 };

@@ -10,6 +10,14 @@ async function UserSeederFn() {
       email: "admin@yopmail.com",
       password: bcrypt.hashSync("admin@123", 10),
       mobile: "1234567890",
+      status: 4,
+    });
+     await User.create({
+      user_type: 4,
+      fullname: "test",
+      email: "test@yopmail.com",
+      password: bcrypt.hashSync("test@123", 10),
+      mobile: "1234567890",
       status: 1,
     });
     console.log("User seeded successfully.");
