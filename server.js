@@ -26,7 +26,7 @@ app.use(cors(corsOptions));
   //   console.log("Drop and re-sync db.");
   //   seeder.UserSeederFn()
   //   seeder.CategorySeederFn()
-  //   seeder.PropertySeederFn()
+  //   // seeder.PropertySeederFn()
   // });
 // }
 
@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static('public'));
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Care Exchange" });
+  res.json({ message: "Welcome to VhubX" });
 });
 
 app.use('/public', express.static('public'));
@@ -64,7 +64,8 @@ app.use((err, req, res, next) => {
 });
 
 let port = 3000
-const PORT = port || 4000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
 });
