@@ -82,10 +82,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    pictures_of_the_space: {
-      type: Sequelize.ARRAY(Sequelize.STRING),
-      allowNull: true,
-    },
+    // pictures_of_the_space: {
+    //   type: Sequelize.ARRAY(Sequelize.STRING),
+    //   allowNull: true,
+    // },
     parking: {
       type: Sequelize.BOOLEAN,
       defaultValue: false,
