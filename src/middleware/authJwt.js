@@ -2,7 +2,8 @@ const jwt = require("jsonwebtoken");
 const db = require("../modules/route.index");
 const apiHelper = require("../helpers/apiHelper");
 const envConfig = require("../config/env.config");
-const User = db.users;
+const { users: User } = require('../../src/modules/user/models/user.model'); 
+
 const { ApiError } = require('../utils/ApiError');
 
 
